@@ -1,7 +1,7 @@
 const CACHE_NAME = 'hybrid-cache-v1';
 const urlsToCache = [
   '/',
-  '/hybrid_qr.html'
+  '/index.html'
 ];
 
 self.addEventListener('install', function(event) {
