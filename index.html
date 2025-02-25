@@ -1,14 +1,11 @@
-# -----------------------------
-# Step 1: Write the Hybrid HTML File
-# -----------------------------
-html_content = """<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hybrid QR Code Page</title>
   <script>
-    // Optional: Register service worker for offline caching (if sw.js is provided)
+    // Optionally register a service worker for offline caching
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function() {
         navigator.serviceWorker.register('sw.js')
@@ -23,10 +20,10 @@ html_content = """<!DOCTYPE html>
 
     window.addEventListener('load', function() {
       if (navigator.onLine) {
-        // Zero-touch redirect to the target website when online
+        // Zero-touch redirection to the target website when online
         window.location.href = "https://wiseonetech.com";
       } else {
-        // Display offline content (vCard details) when offline
+        // Show offline content (vCard details) if offline
         document.getElementById('offlineContent').style.display = 'block';
       }
     });
