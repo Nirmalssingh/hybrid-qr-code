@@ -1,11 +1,17 @@
-<!DOCTYPE html>
+import os
+import qrcode
+
+# -----------------------------
+# Step 1: Write the Hybrid HTML File
+# -----------------------------
+html_content = """<!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hybrid QR Code Page</title>
   <script>
-    // Register service worker for offline caching (ensure sw.js is hosted alongside)
+    // Optional: Register service worker for offline caching (if sw.js is provided)
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function() {
         navigator.serviceWorker.register('sw.js')
@@ -20,12 +26,10 @@
 
     window.addEventListener('load', function() {
       if (navigator.onLine) {
-        // If online, decide to redirect using our AI/ML stub
-        if (aiMlRedirectDecision()) {
-          window.location.href = "https://wiseonetech.in";
-        }
+        // Zero-touch redirect to the target website when online
+        window.location.href = "https://wiseonetech.com";
       } else {
-        // If offline, display the vCard details
+        // Display offline content (vCard details) when offline
         document.getElementById('offlineContent').style.display = 'block';
       }
     });
@@ -36,7 +40,7 @@
   </style>
 </head>
 <body>
-  <div id="offlineContent" style="display: none;">
+  <div id="offlineContent">
     <h2>Contact Details</h2>
     <p><strong>Name:</strong> Nirmal Singh</p>
     <p><strong>Contact:</strong> +91-9167422630</p>
